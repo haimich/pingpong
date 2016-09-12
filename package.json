@@ -4,10 +4,11 @@
   "description": "A simple leaderboard for roundabout ping pong.",
   "scripts": {
     "postinstall": "typings install",
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "start": "npm run clean && tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "typings": "typings"
+    "typings": "typings",
+    "clean": "rimraf src/**/*.js*"
   },
   "dependencies": {
     "@angular/common":  "2.0.0-rc.6",
