@@ -5,10 +5,18 @@ import { Component, Input } from '@angular/core';
   template: `
     <div class="row">
       <div class="six columns pingpong-side">
-        <input type="number" class="pingpong-counter" value="0" />
+        <input type="number" class="pingpong-counter"
+          [style.background-color]="getBgStyle()"
+          [(ngModel)]="pointsPlayer1"
+          (change)="onChange()"
+        />
       </div>
       <div class="six columns pingpong-side">
-        <input type="number" class="pingpong-counter" value="0" />
+        <input type="number" class="pingpong-counter"
+          [style.background-color]="getBgStyle()"
+          [(ngModel)]="pointsPlayer2"
+          (change)="onChange()"
+        />
       </div>
     </div>
   `,
@@ -25,15 +33,45 @@ import { Component, Input } from '@angular/core';
     }
   `]
 })
-export default class Player {
-  @Input()
-  name: string;
+export default class Table {
+  pointsPlayer1: number = 0;
+  pointsPlayer2: number = 0;
 
-  constructor() {
-    this.name = 'Finn';
+  onChange(event: any) {
+    if (this.gameWon()) {
+      console.log('Won');
+    }
   }
 
-  onSelect(name: string) {
-    console.log('Selected', name);
+  gameWon() {
+    if (this.pointsValid() && this.getMax() >= 3) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  getDifference() {
+    return Math.abs(this.pointsPlayer1 - this.pointsPlayer2);
+  }
+
+  getMax() {
+    return Math.max(this.pointsPlayer1, this.pointsPlayer2);
+  }
+
+  pointsValid() {
+    if (this.getDifference() <= 1) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  getBgStyle() {
+    if (this.pointsValid()) {
+      return 'green';
+    } else {
+      return 'yellow';
+    }
   }
 }
