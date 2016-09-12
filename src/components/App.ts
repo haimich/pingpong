@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import Player from './Player';
 
 @Component({
   selector: 'app',
@@ -8,15 +7,16 @@ import Player from './Player';
       <h1>{{ name }}</h1>
 
       <div class="row">
-        <div class="two columns"><Player></Player></div>
-        <div class="eight columns">The table</div>
-        <div class="two columns">...</div>
+        <div class="two columns"><player></player></div>
+        <div class="eight columns"><pingpong-table></pingpong-table></div>
+        <div class="two columns"><player></player></div>
       </div>
     </div>
   `,
   styles: [`
     h1 {
       text-align: center;
+      margin-bottom: 40px;
     }
   `]
 })

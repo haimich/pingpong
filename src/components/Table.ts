@@ -1,14 +1,17 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'player',
+  selector: 'pingpong-table',
   template: `
-    <input [(ngModel)]="name" placeholder="name">
-    <button (click)="onSelect(name)">ClickMe</button>
+    <div class="row">
+      <div class="six columns pingpong-side">left</div>
+      <div class="six columns pingpong-side">right</div>
+    </div>
   `,
   styles: [`
-    input {
-      width: 9em;
+    .pingpong-side {
+      background-color: #0f72b5;
+      height: 24em;
     }
   `]
 })
