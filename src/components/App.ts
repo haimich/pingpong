@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GameFinished } from './Table';
 
 @Component({
   selector: 'app',
@@ -29,12 +30,16 @@ import { Component } from '@angular/core';
 export default class App {
   name: string = 'PingPong';
   winningPlayer: number;
+  pointsPlayer1: number;
+  pointsPlayer2: number;
 
-  gameFinished(player: number) {
-    this.winningPlayer = player;
+  gameFinished(game: GameFinished) {
+    this.winningPlayer = game.winner;
+    this.pointsPlayer1 = game.pointsPlayer1;
+    this.pointsPlayer2 = game.pointsPlayer2;
   }
 
   onSave() {
-    console.log('on save');
+    alert(`The winner is player ${this.winningPlayer} (${this.pointsPlayer1}:${this.pointsPlayer2})`);
   }
 }

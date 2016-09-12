@@ -1,5 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
+export interface GameFinished {
+  winner: number;
+  pointsPlayer1: number;
+  pointsPlayer2: number;
+}
+
 @Component({
   selector: 'pingpong-table',
   template: `
@@ -42,7 +48,11 @@ export default class Table {
 
   onChange(event: any) {
     if (this.gameWon()) {
-      this.gameFinished.emit(this.getWinner());
+      this.gameFinished.emit({
+        winner: this.getWinner(),
+        pointsPlayer1: this.pointsPlayer1,
+        pointsPlayer2: this.pointsPlayer2
+      });
     }
   }
 
