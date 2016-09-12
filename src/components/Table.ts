@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'pingpong-table',
@@ -37,9 +37,12 @@ export default class Table {
   pointsPlayer1: number = 0;
   pointsPlayer2: number = 0;
 
+  @Output()
+  gameFinished = new EventEmitter();
+
   onChange(event: any) {
     if (this.gameWon()) {
-      console.log('Won');
+      this.gameFinished.emit(this.getWinner());
     }
   }
 
@@ -57,6 +60,14 @@ export default class Table {
 
   getMax() {
     return Math.max(this.pointsPlayer1, this.pointsPlayer2);
+  }
+
+  getWinner() {
+    if (this.pointsPlayer1 > this.pointsPlayer2) {
+      return 1;
+    } else {
+      return 2;
+    }
   }
 
   pointsValid() {

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 
       <div class="row">
         <div class="two columns"><player [playerNumber]="1"></player></div>
-        <div class="eight columns"><pingpong-table></pingpong-table></div>
+        <div class="eight columns"><pingpong-table (gameFinished)="gameFinished($event)"></pingpong-table></div>
         <div class="two columns"><player [playerNumber]="2"></player></div>
       </div>
 
@@ -28,6 +28,10 @@ import { Component } from '@angular/core';
 })
 export default class App {
   name: string = 'PingPong';
+
+  gameFinished(player: number) {
+    console.log('Game won by ', player);
+  }
 
   onSave() {
     console.log('on save');
