@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
       <h1>{{ name }}</h1>
 
       <div class="row">
-        <div class="two columns"><player></player></div>
+        <div class="two columns"><player [playerNumber]="1"></player></div>
         <div class="eight columns"><pingpong-table></pingpong-table></div>
-        <div class="two columns"><player></player></div>
+        <div class="two columns"><player [playerNumber]="2"></player></div>
       </div>
 
       <p></p>

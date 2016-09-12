@@ -4,11 +4,12 @@ import { Component, Input } from '@angular/core';
   selector: 'player',
   template: `
     <img src="images/avatar.png" />
-    <input [(ngModel)]="name" placeholder="name">
+    <input [(ngModel)]="name" [(placeholder)]="placeholder">
   `,
   styles: [`
     input {
       width: 9em;
+      padding: 5px;
     }
 
     img {
@@ -17,10 +18,16 @@ import { Component, Input } from '@angular/core';
   `]
 })
 export default class Player {
-  @Input()
   name: string;
 
+  @Input('playerNumber')
+  playerNumber: number;
+
   constructor() {
-    this.name = 'Finn';
+    this.name = '';
+  }
+
+  get placeholder() {
+    return 'Player ' + this.playerNumber;
   }
 }
