@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core';
   template: `
     <img src="images/avatar.png" />
     <input [(ngModel)]="name" [(placeholder)]="placeholder">
+    <div *ngIf="playerNumber === winningPlayer">Winner</div>
   `,
   styles: [`
     input {
@@ -20,8 +21,11 @@ import { Component, Input } from '@angular/core';
 export default class Player {
   name: string;
 
-  @Input('playerNumber')
+  @Input()
   playerNumber: number;
+
+  @Input()
+  winningPlayer: number;
 
   constructor() {
     this.name = '';
