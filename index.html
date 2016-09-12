@@ -4,6 +4,9 @@
     <title>Angular 2 QuickStart</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="node_modules/skeleton-css/css/normalize.css">
+    <link rel="stylesheet" href="node_modules/skeleton-css/css/skeleton.css">
     <link rel="stylesheet" href="styles.css">
 
     <!-- Polyfill(s) for older browsers -->
@@ -20,7 +23,7 @@
     <app>Loading...</app>
 
     <script>
-      System.import('app').catch(console.error);
+      System.import('app').catch(function(err) { console.error(err) });
     </script>
   </body>
 </html>
