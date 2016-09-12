@@ -11,6 +11,12 @@ import { Component } from '@angular/core';
         <div class="eight columns"><pingpong-table></pingpong-table></div>
         <div class="two columns"><player></player></div>
       </div>
+
+      <p></p>
+
+      <div class="row">
+        <button class="twelve columns" (click)="onSave()">Save Game</button>
+      </div>
     </div>
   `,
   styles: [`
@@ -22,4 +28,8 @@ import { Component } from '@angular/core';
 })
 export default class App {
   name: string = 'PingPong';
+
+  onSave() {
+    console.log('on save');
+  }
 }

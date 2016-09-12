@@ -4,14 +4,24 @@ import { Component, Input } from '@angular/core';
   selector: 'pingpong-table',
   template: `
     <div class="row">
-      <div class="six columns pingpong-side">left</div>
-      <div class="six columns pingpong-side">right</div>
+      <div class="six columns pingpong-side">
+        <input type="number" class="pingpong-counter" value="0" />
+      </div>
+      <div class="six columns pingpong-side">
+        <input type="number" class="pingpong-counter" value="0" />
+      </div>
     </div>
   `,
   styles: [`
     .pingpong-side {
       background-color: #0f72b5;
-      height: 24em;
+      height: 16em;
+    }
+
+    .pingpong-counter {
+      width: 17%;
+      margin-left: 124px;
+      margin-top: 90px;
     }
   `]
 })

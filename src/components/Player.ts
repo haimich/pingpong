@@ -3,12 +3,16 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'player',
   template: `
+    <img src="images/avatar.png" />
     <input [(ngModel)]="name" placeholder="name">
-    <button (click)="onSelect(name)">ClickMe</button>
   `,
   styles: [`
     input {
       width: 9em;
+    }
+
+    img {
+      width: 105%;
     }
   `]
 })
@@ -18,9 +22,5 @@ export default class Player {
 
   constructor() {
     this.name = 'Finn';
-  }
-
-  onSelect(name: string) {
-    console.log('Selected', name);
   }
 }
